@@ -42,6 +42,8 @@ DAMAGE.
 #pragma once
 
 #include "../CommonTypes.h"
+#include <thrust/device_malloc.h>
+#include <thrust/gather.h>
 
 ////////////////////////////////////////////////////////////////////// GPU Exact predicates
 
