@@ -6,14 +6,12 @@ using the GPU. The algorithm used is a combination of incremental insertion,
 flipping and star splaying. The code is written using CUDA programming model 
 of NVIDIA. 
 
-===================
 Programming authors
 ===================
 
 Cao Thanh Tung
 Ashwin Nanjappa
 
-=====
 Setup
 =====
 
@@ -29,7 +27,7 @@ For more details on the input and output, refer to:
 	Demo.cpp 
 	DelaunayChecker.cpp. 
 
-=====
+
 Build and run
 =====
 
@@ -43,5 +41,4 @@ CMake is used to build gDel3D on Linux, as shown here:
     $ make
     & ./gflip3d # To run the demo executable
 
-Note that by default, CMake generate code for sm_30 and sm_35. Please modify 
-the CMakeList.txt if needed. 
+Note: Tested with Ubuntu20, and CUDA 11.4
