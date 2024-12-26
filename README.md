@@ -38,10 +38,10 @@ A Visual Studio 2012 project is provided for Windows user.
 
 CMake is used to build gDel3D on Linux, as shown here:
 
-    $ mkdir build
-    $ cd build
-    $ cmake ..
-    $ make
-    & ./gflip3d # To run the demo executable
+    mkdir build
+    cd build
+    cmake ..
+    make
+    ./gflip3d # To run the demo executable
 
 Note: Tested with Ubuntu20, and CUDA 11.4
