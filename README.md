@@ -1,5 +1,8 @@
 A refactored repository of gDel3D that works with recent CUDA architectures.
+
 Original repo: https://github.com/ashwin/gDel3D
+
+Original ReadMe:
 
 This program constructs the Delaunay Triangulation of a set of points in 3D 
 using the GPU. The algorithm used is a combination of incremental insertion, 
@@ -9,8 +12,8 @@ of NVIDIA.
 Programming authors
 ===================
 
-Cao Thanh Tung
-Ashwin Nanjappa
+- Cao Thanh Tung
+- Ashwin Nanjappa
 
 Setup
 =====
