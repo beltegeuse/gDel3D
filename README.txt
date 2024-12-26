@@ -1,3 +1,6 @@
+A refactored repository of gDel3D that works with recent CUDA architectures.
+Original repo: https://github.com/ashwin/gDel3D
+
 This program constructs the Delaunay Triangulation of a set of points in 3D 
 using the GPU. The algorithm used is a combination of incremental insertion, 
 flipping and star splaying. The code is written using CUDA programming model 
@@ -27,7 +30,7 @@ For more details on the input and output, refer to:
 	DelaunayChecker.cpp. 
 
 =====
-Compilation
+Build and run
 =====
 
 A Visual Studio 2012 project is provided for Windows user. 
@@ -38,6 +41,7 @@ CMake is used to build gDel3D on Linux, as shown here:
     $ cd build
     $ cmake ..
     $ make
+    & ./gflip3d # To run the demo executable
 
 Note that by default, CMake generate code for sm_30 and sm_35. Please modify 
 the CMakeList.txt if needed. 
