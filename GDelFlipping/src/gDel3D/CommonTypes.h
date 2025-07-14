@@ -120,14 +120,14 @@ __forceinline__ __host__ __device__ Side sphToSide( RealType det )
 
 ////////////////////////////////////////////////////////////////////// Constants
 // Order of 3 vertices as seen from one vertex of tetra
-__device__ const int TetViAsSeenFrom[4][3] = {
+__host__ __device__ const int TetViAsSeenFrom[4][3] = {
     { 1, 3, 2 }, // From 0
     { 0, 2, 3 }, // From 1
     { 0, 3, 1 }, // From 2
     { 0, 1, 2 }, // Default view is from "3"
 };
 
-__device__ const int TetNextViAsSeenFrom[4][4] = {
+__host__ __device__ const int TetNextViAsSeenFrom[4][4] = {
     { -1, 0, 2, 1 }, // From 0
     { 0, -1, 1, 2 }, // From 1
     { 0, 2, -1, 1 }, // From 2
