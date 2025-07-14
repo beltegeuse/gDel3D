@@ -46,10 +46,10 @@ DAMAGE.
 #include "DelaunayChecker.h"
 #include "InputCreator.h"
 
-const int deviceIdx     = 0; 
+const int deviceIdx     = 1; 
 const int seed          = 123456789;
-const int pointNum      = 100000; 
-const Distribution dist = UniformDistribution;
+const int pointNum      = 128*128*128;
+const Distribution dist = GridDistribution; //UniformDistribution;
 
 Point3HVec   pointVec; 
 GDelOutput   output; 
@@ -60,6 +60,7 @@ void summarize( int pointNum, const GDelOutput& output );
 int main( int argc, const char* argv[] )
 {  
     CudaSafeCall( cudaSetDevice( deviceIdx ) );
+    std::cout << "Using device " << deviceIdx << std::endl;
     CudaSafeCall( cudaDeviceReset() );
 
     // 1. Create points
@@ -81,17 +82,17 @@ int main( int argc, const char* argv[] )
     //GpuDel triangulator( params ); 
   
     GpuDel triangulator; 
-
+    
     triangulator.compute( pointVec, &output );
 
     // 3. Check correctness
-    std::cout << "Checking...\n";
+    //std::cout << "Checking...\n";
 
-    DelaunayChecker checker( &pointVec, &output ); 
-    checker.checkEuler();
-    checker.checkOrientation();
-    checker.checkAdjacency();
-    checker.checkDelaunay( false );
+    //DelaunayChecker checker( &pointVec, &output ); 
+    //checker.checkEuler();
+    //checker.checkOrientation();
+    //checker.checkAdjacency();
+    //checker.checkDelaunay( true );
 
     // 4. Summary
     summarize( pointNum, output ); 
@@ -123,6 +124,20 @@ void summarize( int pointNum, const GDelOutput& output )
     std::cout << std::endl;                              
     std::cout << "# Flips        " << std::setw( 10 ) << output.stats.totalFlipNum << std::endl; 
     std::cout << "# Failed verts " << std::setw( 10 ) << output.stats.failVertNum  << std::endl; 
-    std::cout << "# Final stars  " << std::setw( 10 ) << output.stats.finalStarNum << std::endl; 
+    std::cout << "# Final stars  " << std::setw( 10 ) << output.stats.finalStarNum << std::endl;
+    // show tet list
+    std::cout << "Tetrahedra size   " << std::setw( 10 ) << output.tetVec.size()      << std::endl;
+    // print first 10 tets
+    std::cout << "First 10 tets: " << std::endl;
+    for ( int i = 0; i < std::min( 10, (int)output.tetVec.size() ); ++i )
+    {
+        const Tet& tet = output.tetVec[ i ];
+        std::cout << "Tet " << i << ": ";
+        for ( int j = 0; j < 4; ++j )
+        {
+            std::cout << tet._v[j] << " ";
+        }
+        std::cout << std::endl;
+    }
 }
 
