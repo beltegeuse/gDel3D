@@ -1,0 +1,4 @@
+include README.md
+include gdel3d/*.so
+include gdel3d.cpython-*.so
+recursive-include gdel3d *.so
