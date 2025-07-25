@@ -1,0 +1,33 @@
+[build-system]
+requires = ["pybind11", "setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pygdel3d"
+version = "1.0.0"
+description = "Python bindings for gDel3D GPU-based 3D Delaunay triangulation"
+authors = [
+    {name = "Python Bindings Author", email = "author@example.com"}
+]
+license = {text = "See original gDel3D license"}
+requires-python = ">=3.6"
+dependencies = [
+    "numpy>=1.19.0",
+]
+keywords = ["delaunay", "triangulation", "gpu", "cuda", "computational-geometry"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research",
+    "Topic :: Scientific/Engineering :: Mathematics",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.6",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+]
+
+[project.urls]
+Homepage = "https://github.com/example/pygdel3d"
+Repository = "https://github.com/example/pygdel3d"
